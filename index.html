@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111827">
+
+    <title>Tangkap Koin V4</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="game-wrapper">
+
+        <!-- ================= MENU ================= -->
+        <section id="menuScreen" class="screen active">
+            <div class="menu-card">
+
+                <div class="game-logo">🪙</div>
+
+                <h1>Tangkap Koin</h1>
+                <p class="subtitle">Challenge Mode V4</p>
+
+                <div class="input-group">
+                    <label for="playerName">Nama Pemain</label>
+                    <input
+                        type="text"
+                        id="playerName"
+                        maxlength="15"
+                        placeholder="Masukkan nama..."
+                    >
+                </div>
+
+                <button id="startBtn" class="btn primary">
+                    MULAI GAME
+                </button>
+
+                <button id="leaderboardBtn" class="btn secondary">
+                    🏆 LEADERBOARD
+                </button>
+
+                <button id="statsBtn" class="btn secondary">
+                    📊 STATISTIK
+                </button>
+
+                <div class="menu-settings">
+                    <button id="soundBtn" class="icon-btn">🔊</button>
+                    <button id="vibrationBtn" class="icon-btn">📳</button>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= GAME ================= -->
+        <section id="gameScreen" class="screen">
+
+            <header class="game-header">
+
+                <div class="header-item">
+                    <span>SKOR</span>
+                    <strong id="score">0</strong>
+                </div>
+
+                <div class="header-item">
+                    <span>WAKTU</span>
+                    <strong id="time">60</strong>
+                </div>
+
+                <div class="header-item">
+                    <span>LEVEL</span>
+                    <strong id="level">1</strong>
+                </div>
+
+            </header>
+
+
+            <div class="game-info">
+                <div id="comboDisplay" class="combo">
+                    COMBO x0
+                </div>
+
+                <div id="feverDisplay" class="fever hidden">
+                    🔥 FEVER!
+                </div>
+            </div>
+
+
+            <div id="gameArea" class="game-area">
+
+                <button id="target" class="target" aria-label="Tangkap target">
+                    🪙
+                </button>
+
+            </div>
+
+
+            <footer class="game-footer">
+
+                <div class="footer-stat">
+                    ❤️ <span id="lives">3</span>
+                </div>
+
+                <div class="footer-stat">
+                    🎯 <span id="accuracy">100%</span>
+                </div>
+
+                <button id="pauseBtn" class="pause-btn">
+                    ⏸
+                </button>
+
+            </footer>
+
+        </section>
+
+
+        <!-- ================= PAUSE ================= -->
+        <section id="pauseScreen" class="screen overlay">
+
+            <div class="result-card">
+
+                <h2>GAME DI-PAUSE</h2>
+
+                <button id="resumeBtn" class="btn primary">
+                    ▶ LANJUT
+                </button>
+
+                <button id="restartBtn" class="btn secondary">
+                    🔄 ULANG
+                </button>
+
+                <button id="menuBtn" class="btn secondary">
+                    🏠 MENU
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RESULT ================= -->
+        <section id="resultScreen" class="screen">
+
+            <div class="result-card">
+
+                <div class="result-icon">🏆</div>
+
+                <h2>GAME SELESAI!</h2>
+
+                <p id="resultPlayer" class="result-player">
+                    Pemain
+                </p>
+
+                <div class="final-score">
+                    <span>SKOR</span>
+                    <strong id="finalScore">0</strong>
+                </div>
+
+                <div class="result-grid">
+
+                    <div>
+                        <span>Level</span>
+                        <strong id="finalLevel">1</strong>
+                    </div>
+
+                    <div>
+                        <span>Combo Terbaik</span>
+                        <strong id="finalCombo">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Akurasi</span>
+                        <strong id="finalAccuracy">0%</strong>
+                    </div>
+
+                    <div>
+                        <span>Koin</span>
+                        <strong id="finalHits">0</strong>
+                    </div>
+
+                </div>
+
+                <div id="achievementBox" class="achievement-box hidden">
+                    🎉 <span id="achievementText"></span>
+                </div>
+
+                <button id="playAgainBtn" class="btn primary">
+                    🔄 MAIN LAGI
+                </button>
+
+                <button id="resultMenuBtn" class="btn secondary">
+                    🏠 MENU
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= LEADERBOARD ================= -->
+        <section id="leaderboardScreen" class="screen">
+
+            <div class="menu-card">
+
+                <h2>🏆 LEADERBOARD</h2>
+
+                <div id="leaderboardList" class="leaderboard-list">
+                    Belum ada skor.
+                </div>
+
+                <button id="leaderboardBackBtn" class="btn secondary">
+                    ← KEMBALI
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STATS ================= -->
+        <section id="statsScreen" class="screen">
+
+            <div class="menu-card">
+
+                <h2>📊 STATISTIK</h2>
+
+                <div class="stats-list">
+
+                    <div class="stats-row">
+                        <span>Total Game</span>
+                        <strong id="totalGames">0</strong>
+                    </div>
+
+                    <div class="stats-row">
+                        <span>Skor Tertinggi</span>
+                        <strong id="bestScore">0</strong>
+                    </div>
+
+                    <div class="stats-row">
+                        <span>Combo Terbaik</span>
+                        <strong id="bestCombo">0</strong>
+                    </div>
+
+                    <div class="stats-row">
+                        <span>Total Koin</span>
+                        <strong id="totalCoins">0</strong>
+                    </div>
+
+                </div>
+
+                <button id="statsBackBtn" class="btn secondary">
+                    ← KEMBALI
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
