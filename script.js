@@ -1,4 +1,3 @@
-```javascript
 /* =====================================================
    TANGKAP KOIN V4
    GAME ENGINE
@@ -1086,4 +1085,3 @@ loadPlayer();
 loadSettings();
 
 showScreen(menuScreen);
-```
